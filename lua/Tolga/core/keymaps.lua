@@ -2,18 +2,14 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap -- for conciseness
 
-keymap.set("n", "<leader>U", vim.cmd.UndotreeToggle)
+keymap.set("n", "<leader>U", vim.cmd.UndotreeToggle, { desc = "Undo tree" })
 
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
-keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-
--- delete single character without copying into register
-keymap.set("n", "x", '"_x')
-
+keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selected line to down" })
+keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selected line to up" }) -- delete single character without copying into register keymap.set("n", "x", '"_x')
 -- greatest remap ever
 keymap.set("x", "<leader>p", [["_dP]])
 
